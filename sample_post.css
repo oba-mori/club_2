@@ -1,4 +1,4 @@
-/* post */
+/* TOP */
 
 /*user agent stylesheet を無効化する*/
 /*user agent stylesheetとは、各ブラウザがページを読み込むときに既定で適用されている、CSSのことです。*/
@@ -8,16 +8,17 @@
    License: none (public domain)
 */
 
-
 /*--------------------------------------------------------------------*/
-/*全ての要素*/
-* {
-  /*padding, border をWidthに含める*/
-  box-sizing: border-box;
+/*root*/
+/* JSファイルでスクロールバーを除いた画面のVW(ビューポートサイズ)を取得することが出来る */
+:root {
+  --vw: 1vw;
 }
 
 
+
 /*--------------------------------------------------------------------*/
+
 /* html要素 */
 html {  
       /*ルートの文字サイズを10pxに設定*/
@@ -36,58 +37,159 @@ html {
 
 
 
-/* ヘッダー */
-/* ナビゲーションバー */
-.navigation {
-  width: 100%;
-  height: 5rem;
 
-  background-color: #000000;  
-  /* box-sizing: border-box;   */
-  /* padding-top: 1rem;
-  padding-left: 2rem; */
-  margin: 0 auto;
+/*--------------------------------------------------------------------*/
 
-  /*中央揃えのため*/
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* ヘッダー */
+  /* ナビゲーションバー */
+  .navigation {
+    width: 100%;
+    height: 5rem;
+
+    background-color: #000000;  
+    /* box-sizing: border-box;   */
+    /* padding-top: 1rem;
+    padding-left: 2rem; */
+    margin: 0 auto;
+
+    /*中央揃えのため*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* ハンバーガーメニューのチェックボックスは不要なので消す */
+  #menu-btn-check {
+    display: none;
+  }
+
+
+  
+
+  /* ハンバーガーメニュー ボタンを押したときに現れる文字列*/
+.menu-content {
+    width: 50%;
+    height: 60%;
+    position: fixed;
+    top: 100;
+    left: 100%;/*leftの値を変更してメニューを画面外へ*/
+    z-index: 80;  /*恐らくハンバーガーメニューボタンより後面に表示させたいため、ボタンより小さい値にする*/
+    background-color: #000000;
+    transition: all 0.5s;/*アニメーション設定*/
 }
-/* 箇条書き 要素 */
-.navigation ul {
-  /* フレックスボックス化 */
-  /* 子要素を横並びにする */
-  display: flex;
-  /* 効果(・等)を削除 */
+.menu-content ul {
+    /* padding: 70px 10px 0; */
+    padding:10rem  1rem 0rem 1rem;
+}
+.menu-content ul li {
+
+
+  border-bottom: solid 1px #ffffff;
   list-style: none;
-  /* デフォルトの外部余白を削除 */
-  margin: 0;
-  /* デフォルトの内部余白を削除 */
-  padding: 0;
 }
-/* 全てのli要素(リンクボタン) */
-.navigation li {
-  /* li要素の右余白(全ての要素に適応される) */
-  margin-right: 2rem;
-  margin-left: 2rem;
-  /* フォントサイズ */
-  font-size:  2rem;
+.menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 4rem;
+    box-sizing: border-box;
+    color:#ffffff;
+    text-decoration: none;
+    padding: 1rem 1.5rem 1rem 0,5rem;
+    position: relative;
 }
-/* ナビゲーションバーの文字 */
-.navigation a {
-  /* 文字色 */
-  color: #fff;
-  /* 文字の下線削除 */
-  text-decoration: none;  
+/* 文字横の矢印 */
+.menu-content ul li a::before {
+    content: "";
+    width: 2.6rem;
+    height: 2.6rem;
+    
+    border-top: solid 0.3rem #ffffff;
+    border-right: solid 0.3rem #ffffff;
+    transform: rotate(45deg);
+    position: absolute; 
+
+    /* 左右位置合わせ */
+    /* 要素の右端を親要素の右端から<記載値>分、左に寄せる */
+    right: 1.1rem;
+
+    /* 上下位置合わせ */
+    /* 要素の上を親要素の上下の中央に置いて、上の外部余白を要素の半分だけ減らすことで中央に寄せることが出来る */
+    top: 50%;
+    margin-top: -1.5rem;
+    
+
 }
-/* ナビゲーションバーの文字 ABOUT */
-.ber_post a {
-  /* 文字色 */
-  /* color: rgb(124, 255, 141); */
+.menu-ber_post {
   /* 文字の下線表示 */
   text-decoration:underline;
 }
+
+
+#menu-btn-check:checked ~ .menu-content {
+  left: 50%;/*メニューを画面内へ */
+}
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------- */
+
+/*ウィンドウ幅701～1024pxの場合*/
+@media screen and (min-width: 771px){
+
+  /* 確認用 */
+  body{
+    /* ページ全体の背景色 */
+    background-color: rgb(240, 230, 230); /*背景色*/
+  }
+
+
+
+
+  /* 箇条書き 要素 */
+  .navigation ul {
+    /* フレックスボックス化 */
+    /* 子要素を横並びにする */
+    display: flex;
+    /* 効果(・等)を削除 */
+    list-style: none;
+    /* デフォルトの外部余白を削除 */
+    margin: 0;
+    /* デフォルトの内部余白を削除 */
+    padding: 0;
+  }
+  /* 全てのli要素(リンクボタン) */
+  .navigation li {
+    /* li要素の右余白(全ての要素に適応される) */
+    margin-right: 2rem;
+    margin-left: 2rem;
+    /* フォントサイズ */
+    font-size:  2rem;
+  }
+  /* ナビゲーションバーの文字 */
+  .navigation a {
+    /* 文字色 */
+    color: #fff;
+    /* 文字の下線削除 */
+    text-decoration: none;  
+  }
+  /* ナビゲーションバーの文字 TOP */
+  .ber_post a {
+    /* 文字色 */
+    /* color: rgb(255, 142, 142); */
+
+    /* 文字の下線表示 */
+    text-decoration:underline;
+  } 
+
+}/* 終 */
+
+
+
 
 
 
@@ -95,6 +197,78 @@ html {
 
 
 /*--------------------------------------------------------------------*/
+/* 縦画面用(スマホなど) */
+/*ウィンドウ幅で自動調整*/
+@media screen and (max-width: 770px){ 
+  /* 確認用 */
+  body{
+    /* ページ全体の背景色 */
+    background-color: rgb(230, 238, 240); /*背景色*/
+  }
+/*------------------------------------*/
+  /* ナビゲーションバーは不要なので消す(ハンバーガーメニューが表示されるため) */
+  .navigation ul {
+    display: none;
+  }
+
+/*------------------------------------*/
+
+
+  /* ハンバーガーメニュー ボタン*/
+  .menu-btn {
+    position: fixed;  /*画面の決まった位置に固定(スクロールしても表示される)*/
+    top: 6rem;
+    right: 1rem;
+    display: flex;
+    height: 6rem;
+    width: 6rem;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color: #000000;
+  }
+  .menu-btn span,
+  .menu-btn span:before,
+  .menu-btn span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    position: absolute;
+  }
+  .menu-btn span:before {
+    bottom: 8px;
+  }
+  .menu-btn span:after {
+    top: 8px;
+  }
+
+  /* ハンバーガーメニューをクリックしたら、三本線がなくなって✕マークになる */
+  #menu-btn-check:checked ~ .menu-btn span {
+      background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+  }
+  #menu-btn-check:checked ~ .menu-btn span::before {
+      bottom: 0;
+      transform: rotate(45deg);
+  }
+  #menu-btn-check:checked ~ .menu-btn span::after {
+      top: 0;
+      transform: rotate(-45deg);
+  }
+
+
+}/* 終 */
+
+
+
+
+
+
+/* 設定終了 */
+/*--------------------------------------------------------------------*/
+
 
 /*body全体の設定*/
 body {

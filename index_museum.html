@@ -1,4 +1,6 @@
 <!-- 
+1:ハンバーガーメニュー追加
+2:ハンバーガーメニュー追加 改良
 
 
 参考：
@@ -26,7 +28,7 @@
     <meta charset="utf-8">
 
     <!-- ページ名 -->
-    <title>club_museum</title>
+    <title>club_about</title>
 
     <!-- Robotoフォント導入のため、データを読み込む -->
     <!-- 参考：https://plu-plu.net/post-740/ -->
@@ -42,8 +44,12 @@
     <!-- CSS読み込み -->
     <!-- <link rel="stylesheet" href="./sample_00.css"> -->
     <link rel="stylesheet" href="./sample_museum.css">
-    
+
+    <!-- JSファイル読み込み -->
+    <!-- 100VWにスクロールバーを含めない用の計算ファイル -->
+    <script src="vw.js"></script>
   </head>
+
 
 
 
@@ -87,7 +93,58 @@
     </nav>
 
 
+
+    
+    <!-- ハンバーガーメニュー -->
+    <div class="hamburger-menu">
+      <!-- チェックボックス -->
+      <input type="checkbox" id="menu-btn-check">
+
+      <!-- 実際に表示されるハンバーガーメニュー -->
+      <label for="menu-btn-check" class="menu-btn"><span></span></label>
+
+      <!-- ここから表示メニュー -->
+      <!-- 上記のチェックボックスの状態によって表示非表示 -->
+      <div class="menu-content">
+        <ul>
+          <!-- トップ -->
+          <li class="menu-ber_top">
+            <a href="./index.html">
+              TOP
+            </a>
+          </li>
+          
+          <!-- 概要 -->
+          <li class="menu-ber_about">
+            <a href="./index_about.html">
+              ABOUT
+            </a>
+          </li>
+
+          
+          <!-- 美術館 -->
+          <li class="menu-ber_museum">
+            <a href="./index_museum.html">
+              MUSEUM
+            </a>
+          </li>
+
+
+          <!-- 投稿フォーム -->
+          <li class="menu-ber_post">
+            <a href="./index_post.html">
+              POST
+            </a>
+          </li>        
+        </ul>
+      </div>
+      <!--ここまで表示メニュー-->
+
+    </div>
+    <!-- ハンバーガーメニュー 終わり-->
+
   </header>
+
 
 
 
