@@ -38,6 +38,7 @@ html {
 
 
 
+
 /*--------------------------------------------------------------------*/
 
   /* ヘッダー */
@@ -67,10 +68,10 @@ html {
 
   
 
-  /* ハンバーガーメニュー ボタンを押したときに現れる文字列*/
+  /* ハンバーガーメニュー ボタンを押したときに現れるメニュー*/
 .menu-content {
     width: 50%;
-    height: 60%;
+    height: 100%;
     position: fixed;
     top: 100;
     left: 100%;/*leftの値を変更してメニューを画面外へ*/
@@ -91,12 +92,14 @@ html {
 .menu-content ul li a {
     display: block;
     width: 100%;
-    font-size: 4rem;
+    font-size: 3.5rem;
     box-sizing: border-box;
     color:#ffffff;
     text-decoration: none;
     padding: 1rem 1.5rem 1rem 0,5rem;
     position: relative;
+
+    line-height: 8rem; /*文字高さ*/
 }
 /* 文字横の矢印 */
 .menu-content ul li a::before {
@@ -120,7 +123,7 @@ html {
     
 
 }
-.menu-ber_about {
+.menu-ber_top {
   /* 文字の下線表示 */
   text-decoration:underline;
 }
