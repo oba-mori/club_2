@@ -1,0 +1,185 @@
+<!-- 
+POST
+
+POSTの文字色変更
+
+参考：
+-->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!-- ビューポートを設定
+    レスポンシブデザインに必要
+
+    Googleは、現時点でこちらの記述を推奨しています。表示領域の幅を指定する方法もありますが、現在は端末画面の幅に合わせることを推奨しています。
+    「width=device-width」を記述することで、表示領域の幅を、PCやスマホなどの端末画面の幅に合わせられます。
+    また、「initial-scale=1」は初期のズーム倍率を表します。1に設定することで、初めに表示された時の違和感をなくします。
+    これらの設定にすることで、どのデバイスでも表示領域が合わせられ、ズームの倍率もページ全てが見える癖のない初期ズーム倍率になります。
+    したがって、この記述が一番問題が起こりにくい、最新の内容と言えます。
+
+    参考：https://gmotech.jp/semlabo/seo/blog/howto-viewport/
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <!-- 文字化け防止 -->
+    <meta charset="utf-8">
+
+    <!-- ページ名 -->
+    <title>club_post</title>
+
+    <!-- Robotoフォント導入のため、データを読み込む -->
+    <!-- 参考：https://plu-plu.net/post-740/ -->
+    <!-- 100,200,...というのは、font-weightで選べる太さの数値 これを設定しておかないとcssで太さの変更が出来ない -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    
+    <!-- 元サイトのRobotoデータファイル読み込みコード -->
+    <!-- <link as="style" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&amp;family=Roboto+Slab:wght@400;700&amp;family=Space+Mono&amp;display=swap" rel="preload"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&amp;family=Roboto+Slab:wght@400;700&amp;family=Space+Mono&amp;display=swap" media="all" onload="this.media=&quot;all&quot;" rel="stylesheet"> -->
+
+
+
+    <!-- CSS読み込み -->
+    <!-- <link rel="stylesheet" href="./sample_00.css"> -->
+    <link rel="stylesheet" href="./sample_post.css">
+    
+  </head>
+
+
+
+  
+  <!-- ヘッダー -->
+  <header class="header">
+
+    <!-- ナビゲーションバー -->
+    <nav class="navigation">
+      
+      <!-- 順序がないリスト(箇条書き) -->
+      <ul>
+        <!-- トップ -->
+        <li class="ber_top">
+          <a href="./index.html">
+            TOP
+          </a>
+        </li>
+        
+        <!-- 概要 -->
+        <li class="ber_about">
+          <a href="./index_about.html">
+            ABOUT
+          </a>
+        </li>
+
+        
+        <!-- 美術館 -->
+        <li class="ber_museum">
+          <a href="./index_museum.html">
+            MUSEUM
+          </a>
+        </li>
+
+        <!-- メッセージ -->
+        
+
+        <!-- 投稿フォーム -->
+        <li class="ber_post">
+          <a href="./index_post.html">
+            POST
+          </a>
+        </li>
+      </ul>    
+
+    </nav>
+  </header>
+
+
+
+
+
+  <body>
+
+    <!-- まとめクラス -->
+    <div class="post">
+      <!-- タイトル -->
+      <h1 class="post-ttl">Post</h1>
+
+      <!-- フォーム -->
+      <!-- action は本来セキュリティ上、第三者に見らないように action="" とし、データを受け渡す処理をしてくれるサーバーのCGIプログラムのURIを指定する -->
+      <!-- <form action=""> -->
+      <!-- 今回はテストとして、MUSEUMページに送るように設定した -->
+      <form action="museum.html" method="post" enctype="multipart/form-data" ></form>
+        
+        <!-- フォームテーブル -->
+        <table class="post-table">
+          <!-- 1行目 -->
+          <tr>
+            <!-- カテゴリ欄　名前 -->
+            <th class="post-item">名前</th>
+            <!-- 入力欄 -->
+            <td class="post-body">
+              <!-- 入力可能欄 -->
+              <input type="text" name="名前" class="form-text" />
+            </td>
+          </tr>
+
+          <!-- 2行目 -->
+          <tr>
+            <!-- カテゴリ欄 -->
+            <th class="post-item">タグ</th>
+            <!-- 入力欄 -->
+            <td class="post-body">
+              <!-- チェックボックス0 -->
+              <label class="post-tag">
+                <input type="checkbox" name="タグ" />
+                <span class="post-tag-txt">タグ0</span>
+              </label>
+
+              <!-- チェックボックス 1-->
+              <label class="post-tag">
+                <input type="checkbox" name="タグ" />
+                <span class="post-tag-txt">タグ1</span>
+              </label>           
+              
+              <!-- チェックボックス2 -->
+              <!-- チェックボックスにチェックを入れたら記入欄を表示させたい -->
+              <label class="post-tag">
+                <input type="checkbox" name="タグ" />
+                <span class="post-tag-txt">その他</span>
+
+                <textarea name="その他" class="form-textarea"></textarea>
+                
+              </label>
+            </td>
+          </tr>
+
+          <!-- 3行目 -->
+          <tr>
+            <!-- カテゴリ欄　名前 -->
+            <th class="post-item">ファイル</th>
+            <!-- 入力欄 -->
+            <td class="post-body">
+              <!-- ファイルアップロード -->
+              <!-- multiple:複数のファイル受け付けられる, required:ファイルを入れないと送信できない -->
+              <!-- プレビューを表示する場合はJSを使用する -->
+              <input type="file" accept="image/*" multiple required>
+              
+            </td>
+          </tr>
+        </table>
+
+        <!-- 送信ボタン -->
+        <input class="post-submit" type="submit" value="送信" />
+
+      </form>
+
+
+    </div>
+
+
+
+
+  </body>
+</html>
+
