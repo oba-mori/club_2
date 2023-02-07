@@ -80,32 +80,34 @@ html {
 }
 .menu-content ul {
     /* padding: 70px 10px 0; */
-    padding:200px  10px 0px 10px;
+    padding:10rem  1rem 0rem 1rem;
 }
 .menu-content ul li {
-    border-bottom: solid 1px #ffffff;
-    list-style: none;
+
+
+  border-bottom: solid 1px #ffffff;
+  list-style: none;
 }
 .menu-content ul li a {
     display: block;
     width: 100%;
-    font-size: 15px;
+    font-size: 4rem;
     box-sizing: border-box;
     color:#ffffff;
     text-decoration: none;
-    padding: 9px 15px 10px 0;
+    padding: 0.9rem 1.5rem 1rem 0;
     position: relative;
 }
 .menu-content ul li a::before {
     content: "";
-    width: 7px;
-    height: 7px;
-    border-top: solid 2px #ffffff;
-    border-right: solid 2px #ffffff;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-top: solid 0.2rem #ffffff;
+    border-right: solid 0.2rem #ffffff;
     transform: rotate(45deg);
     position: absolute;
-    right: 11px;
-    top: 16px;
+    right: 1.1rem;
+    top: 1.6rem;
 }
 .menu-ber_top {
   /* 文字の下線表示 */
@@ -204,7 +206,7 @@ html {
   /* ハンバーガーメニュー ボタン*/
   .menu-btn {
     position: fixed;  /*画面の決まった位置に固定(スクロールしても表示される)*/
-    top: 1rem;
+    top: 6rem;
     right: 1rem;
     display: flex;
     height: 6rem;
