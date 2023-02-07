@@ -72,14 +72,15 @@ html {
     width: 50%;
     height: 100%;
     position: fixed;
-    top: 0;
+    top: 100;
     left: 100%;/*leftの値を変更してメニューを画面外へ*/
     z-index: 80;  /*恐らくハンバーガーメニューボタンより前面に表示させたいため、ボタンより小さい値にする*/
     background-color: #000000;
     transition: all 0.5s;/*アニメーション設定*/
 }
 .menu-content ul {
-    padding: 70px 10px 0;
+    /* padding: 70px 10px 0; */
+    padding:200px  10px 0px 10px;
 }
 .menu-content ul li {
     border-bottom: solid 1px #ffffff;
