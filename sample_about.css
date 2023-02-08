@@ -1,136 +1,49 @@
-/* TOP */
-
-/*user agent stylesheet を無効化する*/
-/*user agent stylesheetとは、各ブラウザがページを読み込むときに既定で適用されている、CSSのことです。*/
-/*参考：https://mebee.info/2019/08/21/user-agent-stylesheet/#outline__2*/
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-/*--------------------------------------------------------------------*/
-/*root*/
-/* JSファイルでスクロールバーを除いた画面のVW(ビューポートサイズ)を取得することが出来る */
-:root {
-  --vw: 1vw;
-}
-
-
-
+/* museum */
 /*--------------------------------------------------------------------*/
 
-/* html要素 */
-html {  
-      /*ルートの文字サイズを10pxに設定*/
-      /* フォントサイズ(rem用) 
-      ブラウザのデフォルトのフォントサイズは16pxで、font-sizeを62.5%と指定することで
-      pxにすると10pxとなるり、rem指定がしやすくなるため
-
-      デバイスごとにも設定できる
-      参考：https://engineer-labo.com/rem_size/
-      */
-      /*これを基準に150%とか倍率で指定していく*/
-      font-size: 62.5%; /*フォントサイズを62.5％に設定(PCのWebページのフォントサイズは基本的に16pxなので、10pxになる)*/
+/* ヘッダーメニュー用 */
+.menu-ber_about {
+  /* 文字の下線表示 */
+  text-decoration:underline;
 }
 
-
-
-
-
-
-/*--------------------------------------------------------------------*/
-
-  /* ヘッダー */
-  /* ナビゲーションバー */
-  .navigation {
-    width: 100%;
-    height: 5rem;
-
-    background-color: #000000;  
-    /* box-sizing: border-box;   */
-    /* padding-top: 1rem;
-    padding-left: 2rem; */
-    margin: 0 auto;
-
-    /*中央揃えのため*/
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* ハンバーガーメニューのチェックボックスは不要なので消す */
-  #menu-btn-check {
-    display: none;
-  }
-
-
-  
-
-  /* ハンバーガーメニュー ボタンを押したときに現れるメニュー*/
-.menu-content {
-    width: 50%;
-    height: 100%;
-    position: fixed;
-    top: 100;
-    left: 100%;/*leftの値を変更してメニューを画面外へ*/
-    z-index: 80;  /*恐らくハンバーガーメニューボタンより後面に表示させたいため、ボタンより小さい値にする*/
-    background-color: #000000;
-    transition: all 0.5s;/*アニメーション設定*/
-}
-.menu-content ul {
-    /* padding: 70px 10px 0; */
-    padding:10rem  1rem 0rem 1rem;
-}
-.menu-content ul li {
-
-
-  border-bottom: solid 1px #ffffff;
-  list-style: none;
-}
-.menu-content ul li a {
-    display: block;
-    width: 100%;
-    font-size: 3.5rem;
-    box-sizing: border-box;
-    color:#ffffff;
-    text-decoration: none;
-    padding: 1rem 1.5rem 1rem 0,5rem;
-    position: relative;
-
-    line-height: 8rem; /*文字高さ*/
-}
-/* 文字横の矢印 */
-.menu-content ul li a::before {
-    content: "";
-    width: 2.6rem;
-    height: 2.6rem;
-    
-    border-top: solid 0.3rem #ffffff;
-    border-right: solid 0.3rem #ffffff;
-    transform: rotate(45deg);
-    position: absolute; 
-
-    /* 左右位置合わせ */
-    /* 要素の右端を親要素の右端から<記載値>分、左に寄せる */
-    right: 1.1rem;
-
-    /* 上下位置合わせ */
-    /* 要素の上を親要素の上下の中央に置いて、上の外部余白を要素の半分だけ減らすことで中央に寄せることが出来る */
-    top: 50%;
-    margin-top: -1.5rem;
-    
-
-}
-#menu-btn-check:checked ~ .menu-content {
-  left: 50%;/*メニューを画面内へ */
-}
-
-
-
+/* ハンバーガーメニュー用 */
+/* ナビゲーションバーの文字  */
+.ber_about a {
+  /* 文字の下線表示 */
+  text-decoration:underline;
+} 
 
 
 /* -------------------------------------------------------------------- */
+/* ここからメインプログラム */
+
+
+/* 確認用 */
+/* 要素を見分けやすくするために背景色を設定 */
+.g_0_0_0{
+  border: 1px solid rgb(183, 183, 183);
+}
+
+.g_0_0_0[data-name="d_0_0_0"] {
+  /* background-color:rgb(255, 159, 159); */
+}
+.g_0_0_0[data-name="d_0_0_1"] {
+  /* background-color:rgb(147, 224, 255); */
+}
+.g_0_0_0[data-name="d_0_0_2"] {
+  /* background-color:rgb(223, 255, 79); */
+}
+.g_0_0_0[data-name="d_0_0_3"] {
+  /* background-color:rgb(99, 255, 60); */
+}
+.g_0_0_0[data-name="d_0_0_4"] {
+  /* background-color:rgb(250, 134, 247); */
+}
+
+
+
+
 
 /*ウィンドウ幅701～1024pxの場合*/
 @media screen and (min-width: 771px){
@@ -140,163 +53,146 @@ html {
     /* ページ全体の背景色 */
     background-color: rgb(240, 230, 230); /*背景色*/
   }
-
-
-
-
-  /* 箇条書き 要素 */
-  .navigation ul {
-    /* フレックスボックス化 */
-    /* 子要素を横並びにする */
-    display: flex;
-    /* 効果(・等)を削除 */
-    list-style: none;
-    /* デフォルトの外部余白を削除 */
-    margin: 0;
-    /* デフォルトの内部余白を削除 */
-    padding: 0;
-  }
-  /* 全てのli要素(リンクボタン) */
-  .navigation li {
-    /* li要素の右余白(全ての要素に適応される) */
-    margin-right: 2rem;
-    margin-left: 2rem;
-    /* フォントサイズ */
-    font-size:  2rem;
-  }
-  /* ナビゲーションバーの文字 */
-  .navigation a {
-    /* 文字色 */
-    color: #fff;
-    /* 文字の下線削除 */
-    text-decoration: none;  
-  }
-  /* ナビゲーションバーの文字 TOP */
-  .ber_top a {
-    /* 文字色 */
-    /* color: rgb(255, 142, 142); */
-
-    /* 文字の下線表示 */
-    text-decoration:underline;
-  } 
-
+  
 }/* 終 */
 
 
-
-/*--------------------------------------------------------------------*/
-/* 縦画面用(スマホなど) */
 /*ウィンドウ幅で自動調整*/
 @media screen and (max-width: 770px){ 
   /* 確認用 */
   body{
     /* ページ全体の背景色 */
     background-color: rgb(230, 238, 240); /*背景色*/
-  }
-/*------------------------------------*/
-  /* ナビゲーションバーは不要なので消す(ハンバーガーメニューが表示されるため) */
-  .navigation ul {
-    display: none;
-  }
-
-/*------------------------------------*/
-
-
-  /* ハンバーガーメニュー ボタン*/
-  .menu-btn {
-    position: fixed;  /*画面の決まった位置に固定(スクロールしても表示される)*/
-    top: 6rem;
-    right: 1rem;
-    display: flex;
-    height: 6rem;
-    width: 6rem;
-    justify-content: center;
-    align-items: center;
-    z-index: 90;
-    background-color: #000000;
-  }
-  .menu-btn span,
-  .menu-btn span:before,
-  .menu-btn span:after {
-    content: '';
-    display: block;
-    height: 3px;
-    width: 25px;
-    border-radius: 3px;
-    background-color: #ffffff;
-    position: absolute;
-  }
-  .menu-btn span:before {
-    bottom: 8px;
-  }
-  .menu-btn span:after {
-    top: 8px;
-  }
-
-  /* ハンバーガーメニューをクリックしたら、三本線がなくなって✕マークになる */
-  #menu-btn-check:checked ~ .menu-btn span {
-      background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
-  }
-  #menu-btn-check:checked ~ .menu-btn span::before {
-      bottom: 0;
-      transform: rotate(45deg);
-  }
-  #menu-btn-check:checked ~ .menu-btn span::after {
-      top: 0;
-      transform: rotate(-45deg);
-  }
-
-
+  }  
 }/* 終 */
 
 
 
+/* グリッド作成 */
+.g_0_0 {
+  display: grid;  /*グリッドレイアウト*/
+  
+
+  
+
+  --yoko_kazu: 8;     /*横に並べる数*/
+  --tate_kazu: 6;     /*横に並べる数*/
+
+  /* 幅、高さは共通 */
+  /*grid-template-columns: repeat(横に並べる数, 幅); の横に並べる数 と 幅 に使用する変数*/
+  /* 横幅100%を横に並べる数で割ったものが、グリッド一つ当たりの辺の長さになる */
+  --hen: calc(var(--vw) * calc(100 / var(--yoko_kazu)));; /*グリッドの一辺の長さ*/
+
+  /* 横方向 */
+  grid-template-columns: repeat(var(--yoko_kazu), var(--hen)); /*// 横に4つ並べる*//*repeatは(横に並べる数, 幅)*//*1:1:1:1の割合で4つグリッドエリアを作る*/
+
+  /* 縦方向 */
+  /*最小(基本)高さを、ウィンドウ横幅の20%に設定
+  最大高さを上の高さと同じように、ルート文字37分(今回は10pxなので370px)に設定(これを超えて高くならない)*/
+  /*grid-template-rows: min(25vw,37rem) min(25vw,37rem) min(25vw,37rem) min(25vw,37rem); /* 縦に4つ並べる*/
+  grid-template-rows: repeat(var(--tate_kazu), var(--hen)); /*// 横に3つ並べる*//*repeatは(回, 内容)*//*1:1:1の割合で3つグリッドエリアを作る*/
+
+
+
+  /*gap: clamp(3rem, 3vmin, 4rem);  /*要素同士の余白を設定
+                                clamp(min, val, max) → 最小値, 推奨値, 最大値(推奨値に当てはまらない場合に最小最大になる)
+                                今回は最小:3文字、推奨:ウィンドウの高さ幅の短い方の長さの3％、最大4文字
+                                vmin:ウィンドウの幅と高さのうち、値が小さいほうに対する割合
+                                (多分スマホみたいに小さい画面の場合、余白が大きすぎてしまうから、小さくなるように設定);
+                                参照：https://tedate.jp/coding/about-font-size-use-clamp-function
+                                */
+  
+  
+  box-sizing: border-box; /*max-widthでmargin以外の全てを含んだ幅指定が出来る(高さ幅指定にpaddingを含める)*/
+                                
+  /* max-inline-size: 130rem; */
+  /*max-width: 130rem;  /*グリッドの全体枠の最大幅*/
+
+  /*padding-left: min(5vw, 6.5rem);     /*内部余白(左)：ウィンドウ幅の5％*/
+  /*padding-right: min(5vw, 6.5rem);    /*内部余白(右)：ウィンドウ幅の5％*/
+
+  margin: 0 auto;   /*外部余白を自動生成して中央揃え(gridのようなブロックレベル要素)*/
+}
+
+
+/*要素を配置するグリッド位置(基本)*/
+/* class名::markergrid1を一括でグリッドに配置 */
+/* 3✕2のグリッドの左上から右上、左下から右下まで要素(A～E)を順番に自動で配置する */
+.g_0_0{
+  /* -- を付けると変数として扱うことが出来る var(変数名)で呼び出す*/
+  /*--grid-column-start: auto;  /*要素描写開始位置(X軸)を指定 autoと指定すると左上を起点に他のグリッド領域に重ならないように自動的に開始位置を決めてくれる グリッド線の番号は左上から1, 2, 3, ... と自動的に割り振られる X軸方向にグリッドを3つ作成したら、4本のグリッド線が出来る*/
+  /*--grid-column-end: span 1;  /*要素描写開始位置(X軸)のグリッドスパン(セル)を指定 グリッドセル何個分をグリッド領域とするか 1なら1セル分*/
+  /*--grid-row-start: auto;     /*上で説明したY軸版*/
+  /*--grid-row-end: span 1;     /*上で説明したY軸版*/
+}
+
+
+/*要素のグリッド配置反映*/
+/*class名指定*/
+.g_0_0{
+  /*上記で設定した変数値を反映、更新する*/
+  /*要素の描写エリアを変更したい時に、変数の値を書き換えることで簡単に変更することが出来る*/
+  /*grid-column:開始位置/終了位置(又はスパン) というように設定する*/
+  /* grid-column: var(--grid-column-start)/var(--grid-column-end); */
+  /* grid-row: var(--grid-row-start)/var(--grid-row-end); */
+  
+}
+/*class名指定*/
+/*要素全てに色を付ける*/
+.g_0_0{
+  background-color: rgb(241, 241, 241); /*背景色*/
+
+}
+
+
+
+
 /*--------------------------------------------------------------------*/
-/*body全体の設定*/
-body {
-  font-family: Roboto,sans-serif!important; /*フォントスタイル*/
-  font-size: clamp(1.6rem,2vw,2rem);  /*フォントサイズ (最小,推奨,最大)*/
-  line-height: 1.4; /*行間調節*/
+/* 要素を配置 */
+/*要素0*/
+.g_0_0_0[data-name="d_0_0_0"] {
+  /* グリッド横方向 */
+  grid-column: 3 / 7; /*横軸を区切るための縦線の番号2~4に配置*/
+  /* グリッド縦方向 */
+  grid-row: 1 / 7; /*縦軸を区切るための横線の番号1~5に配置*/  
+}
 
-  margin: 0;  /*自動生成余白を消す*/  
+/*要素1*/
+.g_0_0_0[data-name="d_0_0_1"] {
+  /* グリッド横方向 */
+  grid-column: 1 / 3; /*横軸を区切るための縦線の番号2~4に配置*/
+  /* グリッド縦方向 */
+  grid-row: 2 / 5; /*縦軸を区切るための横線の番号1~5に配置*/  
+}
 
-  /* ページ全体の背景色 */
-  /*background-color: rgba(230, 250, 230, 255); /*背景色*/
-  background-color: rgb(230, 250, 230); /*背景色*/
+/*要素1*/
+.g_0_0_0[data-name="d_0_0_2"] {
+  /* グリッド横方向 */
+  grid-column: 7 / 9; /*横軸を区切るための縦線の番号2~4に配置*/
+  /* グリッド縦方向 */
+  grid-row: 2 / 5; /*縦軸を区切るための横線の番号1~5に配置*/  
+}
+
+/*要素1*/
+.g_0_0_0[data-name="d_0_0_3"] {
+  /* グリッド横方向 */
+  grid-column: 1 / 3; /*横軸を区切るための縦線の番号2~4に配置*/
+  /* グリッド縦方向 */
+  grid-row: 5 / 7; /*縦軸を区切るための横線の番号1~5に配置*/
+}
+
+/*要素1*/
+.g_0_0_0[data-name="d_0_0_4"] {
+  /* グリッド横方向 */
+  grid-column: 7 / 9; /*横軸を区切るための縦線の番号2~4に配置*/
+  /* グリッド縦方向 */
+  grid-row: 5 / 7; /*縦軸を区切るための横線の番号1~5に配置*/  
 }
 
 
-/*祖親クラスの高さを指定(スクロールできるように)*/
-.g_0 {
-  /* 横スクロールバー非表示 グリッドでvwを使用したいが、スクロールバーも含めたものになる → バランス崩れを防ぐため */
-  /* overflow-x: hidden; */
-
-  min-height: 2000px;
-}
 
 
-/*スマホの場合のフォントサイズを設定(横幅550px以下)*/
-/*
-rem親要素に応じて指定されるのではなく、文字サイズの指定に使うため1rem=10px未満になるとChromeが値を無効にしてしまいます。Chromeの独自処理なので、レスポンシブされない理由が分からず、初心者は煮詰まってしまう可能性があるので注意してください。
-
-remを使っているのに、スマホのChrome画面でレスポンシブが効かないときはremのサイズ指定が10pxになっていないか確認しましょう。
-参考：https://engineer-labo.com/rem_size/
-*/
-/* @media screen and (max-width: 550px) {
-  html{ */
-    /* 1rem = 10xと再定義 */
-    /*必ず10px以上に設定する！！*/
-    /* font-size: 10px;
-  } */
-
-  /* body{ */
-    /* （100px * 0.14rem = 14px） */
-    /* font-size: .7rem;
-  }
-} */
 
 
-/* 設定終了 */
-/* -------------------------------------------------------------------- */
 
 
