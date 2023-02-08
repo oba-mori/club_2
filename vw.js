@@ -1,6 +1,10 @@
-const setVw = function() {
-  const vw = document.documentElement.clientWidth / 100;
-  document.documentElement.style.setProperty('--vw', `${vw}px`);
+// header.htmlの設定
+function header(){
+  $.ajax({
+      url: "header.html",
+      cache: false,
+      success: function(html){
+          document.write(html);
+      }
+  });
 }
-window.addEventListener('DOMContentLoaded', setVw);
-window.addEventListener('resize', setVw);
